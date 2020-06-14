@@ -6,8 +6,7 @@ class TextWidget extends StatelessWidget{
   final String text;
   final String font;
   final double fontSize;
-  final String color;
-  var _color;
+  var color;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +14,8 @@ class TextWidget extends StatelessWidget{
       text,
       style: TextStyle(
         fontSize: fontSize,
-        fontFamily: 'Poppins-Medium',
-        color: _color
+        fontFamily: font,
+        color: color
       ),
     );
   }
