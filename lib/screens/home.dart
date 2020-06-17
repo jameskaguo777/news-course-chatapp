@@ -1,9 +1,13 @@
 
+
+
 import 'package:flutter/material.dart';
+import 'package:sheria_pocket/widget/categories_card.dart';
 import 'package:sheria_pocket/widget/text.dart';
 import 'package:sheria_pocket/widget/top_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sheria_pocket/resources/colors.dart';
+import 'package:sheria_pocket/widget/video_player_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -30,18 +34,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: _appBar(),
-      body: Center(
-
-        child: Container(
+      body: Container(
+          padding: EdgeInsets.fromLTRB(10,10,10,0),
           color: Colors.white,
-
+          width: double.maxFinite,
+          child: Column(
+            children: [
+              _videoSection(),
+              _shoppingCategorySection(),
+            ]
+          )
         ),
-      ),
+
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        onPressed: null,
+      )
     );
   }
 
@@ -54,15 +61,15 @@ class _MyHomePageState extends State<MyHomePage> {
               SvgPicture.asset('assets/images/balance.svg'),
               SizedBox(width: 10),
               TextWidget(
-                text: "Mayuko",
+                text: "Sheria",
                 font: 'Poppins-Bold',
-                fontSize: 20,
+                fontSize: 25,
                 color: blueColor,
               ),
               TextWidget(
-                text: " Tada",
+                text: " Pocket",
                 font: 'Poppins-Bold',
-                fontSize: 20,
+                fontSize: 25,
                 color: yellowColor,
               ),
           ],
@@ -70,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
         leading: IconButton(
                       icon: Container(
-                        height: 20.0,
+                        height: 25.0,
                         child: SvgPicture.asset('assets/images/menu.svg') ,
                       ),
                       onPressed: null
@@ -78,4 +85,88 @@ class _MyHomePageState extends State<MyHomePage> {
       elevation: 0.0,
       );
   }
+
+
+  // Video Top Section
+
+  Widget _videoSection(){
+    return Container(
+      margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
+      color: Colors.white,
+      alignment: Alignment.center,
+      child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                  VideoPlayerScreen(
+                    url: 'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4', 
+                    height: 200.0
+                    ),
+                ],
+              ),
+    );
+  }
+
+  Widget _shoppingCategorySection(){
+    return Container(
+      margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
+      // color: Colors.white,
+      alignment: Alignment.centerLeft,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextWidget(
+                    fontSize: 20,
+                    font: 'Poppins-Bold',
+                    color: blackColor,
+                    text: 'Shopping',
+                  ),
+                  Row(
+                    children: [
+                      FlatButton(
+                        onPressed: null,
+                        
+                        child: Wrap(
+                          direction: Axis.horizontal,
+                          spacing: 1.8,
+                          // margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            TextWidget(
+                              fontSize: 12,
+                              font: 'Poppins-Light',
+                              color: blackColor,
+                              text: 'View',
+                              ),
+                            Icon(
+                              
+                              Icons.arrow_forward_ios),
+                          ],
+                        )
+                      )
+                    ],
+                  ),
+                ]
+              ), 
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  ListView.builder(
+                    itemCount: litems.length,
+                    itemBuilder: (BuildContext context, int index){
+                      return CategoriesCard(isNetwork: false, asset: litems[index]);
+                    },
+                  ),
+                ]
+              )
+              
+        ]
+      )
+    );
+  }
+
+  List<String> litems = [ 'assets/images/suit.svg', 'assets/images/stationary.svg', 'assets/images/book.svg'  ];
 }
