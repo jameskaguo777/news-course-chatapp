@@ -6,18 +6,19 @@ import 'package:sheria_pocket/widget/text.dart';
 
 class CategoriesCard extends StatelessWidget{
 
-  CategoriesCard({@required this.isNetwork, this.url,this.asset});
+  CategoriesCard({@required this.isNetwork, this.url, this.asset, this.title});
 
   final bool isNetwork;
   final String url;
   final String asset;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 80.0,
       width: 100.0,
-      
+      // padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
       child: Card(
         elevation: 3,
         color: darkBlueColor,
@@ -44,7 +45,7 @@ class CategoriesCard extends StatelessWidget{
               ),
             SizedBox(height: 5.0),
             TextWidget(
-              text: 'Clothes',
+              text: title == null ? 'Untitled' : title,
               font: 'Poppins-Medium',
               fontSize: 13,
               color: Colors.white,

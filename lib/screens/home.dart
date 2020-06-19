@@ -1,10 +1,9 @@
-
-
-
 import 'package:flutter/material.dart';
+import 'package:sheria_pocket/helpers/shopping_categories.dart';
+import 'package:sheria_pocket/resources/categories.dart';
 import 'package:sheria_pocket/widget/categories_card.dart';
 import 'package:sheria_pocket/widget/text.dart';
-import 'package:sheria_pocket/widget/top_bar.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sheria_pocket/resources/colors.dart';
 import 'package:sheria_pocket/widget/video_player_screen.dart';
@@ -21,6 +20,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  List<dynamic> litems = CATEGORIES;
+
+  @override
+  void initState() {
+    super.initState();
+
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -32,24 +38,27 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-      appBar: _appBar(),
-      body: Container(
-          padding: EdgeInsets.fromLTRB(10,10,10,0),
-          color: Colors.white,
-          width: double.maxFinite,
-          child: Column(
-            children: [
-              _videoSection(),
-              _shoppingCategorySection(),
-            ]
-          )
-        ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: _appBar(),
+        body: Container(
+            padding: EdgeInsets.fromLTRB(10,10,10,0),
+            color: Colors.white,
+            width: double.maxFinite,
+            child: Column(
+              children: [
+                _videoSection(),
+                _shoppingCategorySection(),
+              ]
+            )
+          ),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        floatingActionButton: FloatingActionButton(
+          onPressed: null,
+        )
       )
     );
+
   }
 
   Widget _appBar(){
@@ -115,58 +124,71 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextWidget(
-                    fontSize: 20,
-                    font: 'Poppins-Bold',
-                    color: blackColor,
-                    text: 'Shopping',
-                  ),
-                  Row(
-                    children: [
-                      FlatButton(
-                        onPressed: null,
-                        
-                        child: Wrap(
-                          direction: Axis.horizontal,
-                          spacing: 1.8,
-                          // margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-                            TextWidget(
-                              fontSize: 12,
-                              font: 'Poppins-Light',
-                              color: blackColor,
-                              text: 'View',
-                              ),
-                            Icon(
-                              
-                              Icons.arrow_forward_ios),
-                          ],
-                        )
-                      )
-                    ],
-                  ),
-                ]
-              ), 
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextWidget(
+                fontSize: 20,
+                font: 'Poppins-Bold',
+                color: blackColor,
+                text: 'Shopping',
+              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
                 children: [
-                  ListView.builder(
-                    itemCount: litems.length,
-                    itemBuilder: (BuildContext context, int index){
-                      return CategoriesCard(isNetwork: false, asset: litems[index]);
-                    },
-                  ),
-                ]
-              )
-              
+                  FlatButton(
+                    onPressed: null,
+
+                    child: Wrap(
+                      direction: Axis.horizontal,
+                      spacing: 1.8,
+                      // margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        TextWidget(
+                          fontSize: 12,
+                          font: 'Poppins-Light',
+                          color: blackColor,
+                          text: 'View',
+                          ),
+                        Icon(
+
+                          Icons.arrow_forward_ios),
+                      ],
+                    )
+                  )
+                ],
+              ),
+            ]
+          ),
+
+          Container(
+            alignment: Alignment.centerLeft,
+            height: 110,
+            child: ListView.builder(
+                shrinkWrap: true,
+                padding: const EdgeInsets.all(10),
+                scrollDirection: Axis.horizontal,
+                itemCount: litems.length,
+                itemBuilder: (BuildContext context, int index){
+                  return CategoriesCard(isNetwork: false, title: litems[index]['title'], asset: litems[index]['asset']);
+                },
+              ),
+          ),
+
         ]
-      )
+              )
+
     );
   }
 
-  List<String> litems = [ 'assets/images/suit.svg', 'assets/images/stationary.svg', 'assets/images/book.svg'  ];
+  Widget _news(){
+    return Container(
+      margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
+      // color: Colors.white,
+      alignment: Alignment.centerLeft,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+      ),
+    );
+  }
+
 }
