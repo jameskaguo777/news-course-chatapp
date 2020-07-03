@@ -38,7 +38,7 @@ class _NewsTiles extends State<NewsTiles>{
                 fit: BoxFit.fill,
                 imageUrl: widget.url,
                 progressIndicatorBuilder: (context, url, downloadProgress) => 
-                  CircularProgressIndicator(value: downloadProgress.progress),
+                  CircularProgressIndicator(value: downloadProgress.progress, strokeWidth: 10,),
                 errorWidget: (context, url, error) => Icon(Icons.error),
                 
               ),
