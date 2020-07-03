@@ -6,7 +6,7 @@ class TextWidget extends StatelessWidget{
   final String text;
   final String font;
   final double fontSize;
-  var color;
+  final color;
 
   @override
   Widget build(BuildContext context) {

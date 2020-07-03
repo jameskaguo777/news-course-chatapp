@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sheria_pocket/helpers/shopping_categories.dart';
-import 'package:sheria_pocket/resources/categories.dart';
+import 'package:sheria_pocket/resources/constants.dart';
 import 'package:sheria_pocket/widget/categories_card.dart';
+import 'package:sheria_pocket/widget/drawer.dart';
+import 'package:sheria_pocket/widget/news_tiles.dart';
 import 'package:sheria_pocket/widget/text.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,8 +21,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  List<dynamic> litems = CATEGORIES;
+  
+  List<dynamic> citems = CATEGORIES;
+  List<dynamic> nitems = NEWS;
 
   @override
   void initState() {
@@ -28,34 +31,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
   }
 
-  void _incrementCounter() {
-    setState(() {
-
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
 
     return SafeArea(
       child: Scaffold(
+        drawer: DrawerWidget(),
         appBar: _appBar(),
         body: Container(
-            padding: EdgeInsets.fromLTRB(10,10,10,0),
+            padding: EdgeInsets.fromLTRB(5,5,5,0),
             color: Colors.white,
             width: double.maxFinite,
-            child: Column(
-              children: [
-                _videoSection(),
-                _shoppingCategorySection(),
-              ]
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  _videoSection(),
+                  _shoppingCategorySection(),
+                  _news(),
+                ]
+              ),
             )
           ),
 
-        floatingActionButton: FloatingActionButton(
-          onPressed: null,
-        )
       )
     );
 
@@ -84,13 +82,18 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           ),
         backgroundColor: Colors.white,
-        leading: IconButton(
+        leading: Builder(
+          builder: (BuildContext context){
+            return IconButton(
                       icon: Container(
                         height: 25.0,
                         child: SvgPicture.asset('assets/images/menu.svg') ,
                       ),
-                      onPressed: null
-                    ),
+                      onPressed: () => Scaffold.of(context).openDrawer(),
+                      tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+                    );
+            }
+          ),
       elevation: 0.0,
       );
   }
@@ -117,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _shoppingCategorySection(){
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
+      margin: EdgeInsets.fromLTRB(5, 15, 5, 0),
       // color: Colors.white,
       alignment: Alignment.centerLeft,
       child: Column(
@@ -167,26 +170,78 @@ class _MyHomePageState extends State<MyHomePage> {
                 shrinkWrap: true,
                 padding: const EdgeInsets.all(10),
                 scrollDirection: Axis.horizontal,
-                itemCount: litems.length,
+                itemCount: citems.length,
                 itemBuilder: (BuildContext context, int index){
-                  return CategoriesCard(isNetwork: false, title: litems[index]['title'], asset: litems[index]['asset']);
+                  return CategoriesCard(isNetwork: false, title: citems[index]['title'], asset: citems[index]['asset']);
                 },
               ),
           ),
 
         ]
-              )
+      )
 
     );
   }
 
   Widget _news(){
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
+      margin: EdgeInsets.fromLTRB(5, 15, 5, 0),
       // color: Colors.white,
       alignment: Alignment.centerLeft,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextWidget(
+                fontSize: 20,
+                font: 'Poppins-Bold',
+                color: blackColor,
+                text: 'Law News',
+              ),
+              Row(
+                children: [
+                  FlatButton(
+                    onPressed: null,
+
+                    child: Wrap(
+                      direction: Axis.horizontal,
+                      spacing: 1.8,
+                      // margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        TextWidget(
+                          fontSize: 12,
+                          font: 'Poppins-Light',
+                          color: blackColor,
+                          text: 'View',
+                          ),
+                        Icon(
+
+                          Icons.arrow_forward_ios),
+                      ],
+                    )
+                  )
+                ],
+              ),
+            ]
+          ),
+
+          Container(
+            alignment: Alignment.topLeft,
+            margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+            child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: nitems.length,
+                itemBuilder: (BuildContext context, int index){
+                  return NewsTiles(url: nitems[index]['url'], title: nitems[index]['title'], subtitle: nitems[index]['subtitle'], date: nitems[index]['date'],);
+                },
+              ),
+          ),
+
+        ]
       ),
     );
   }
