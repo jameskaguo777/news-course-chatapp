@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 const CATEGORIES = [
   {
     'title' : 'Clothes',
@@ -70,3 +72,42 @@ const USER =
     'userName' : 'James Kaguo',
     'isUser' : true,
   };
+
+  var menus = [
+    {
+      'name' : 'Home',
+      'icon' : Icons.home,
+      'route' : '/',
+      'active' : true,
+    },
+    {
+      'name' : 'Shopping',
+      'icon' : Icons.shop,
+      'route' : '/shopping',
+      'active' : false,
+    },
+    {
+      'name' : 'Booking',
+      'icon' : Icons.bookmark,
+      'route' : '/booking',
+      'active' : false,
+    },
+    {
+      'name' : 'Media',
+      'icon' : Icons.play_circle_filled,
+      'route' : '/media',
+      'active' : false,
+    },
+    {
+      'name' : 'Learning',
+      'icon' : Icons.account_box,
+      'route' : '/learning',
+      'active' : false,
+    },
+    {
+      'name' : 'News',
+      'icon' : Icons.new_releases,
+      'route' : '/news',
+      'active' : false,
+    },
+  ];
