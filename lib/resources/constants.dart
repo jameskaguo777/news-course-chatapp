@@ -63,3 +63,10 @@ const NEWS = [
     'date' : 'Oct 03 2020'
   },
 ];
+
+const USER =  
+  {
+    'dp' : 'https://miro.medium.com/max/3150/1*J_BOSSzUz4qBvAjFb-YgZA@2x.jpeg',
+    'userName' : 'James Kaguo',
+    'isUser' : true,
+  };

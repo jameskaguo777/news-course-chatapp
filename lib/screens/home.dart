@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return SafeArea(
       child: Scaffold(
-        drawer: DrawerWidget(),
+        drawer: DrawerWidget(userName: USER['userName'], isUser: USER['isUser'], url: USER['dp'],),
         appBar: _appBar(),
         body: Container(
             padding: EdgeInsets.fromLTRB(5,5,5,0),
