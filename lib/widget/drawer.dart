@@ -11,8 +11,8 @@ class DrawerWidget extends StatefulWidget{
   final String userName;
   final String url;
   final bool isUser;
-  final List<bool> isHighlighted = [true, false, false];
-  final List<dynamic> menuList = MENUS;
+  // final List<bool> isHighlighted = [true, false, false];
+  final List<dynamic> menuList = menus;
 
   _DrawerWidget createState() => _DrawerWidget();
 }

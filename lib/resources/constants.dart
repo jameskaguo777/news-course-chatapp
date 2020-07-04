@@ -73,7 +73,7 @@ const USER =
     'isUser' : true,
   };
 
-  var MENUS = [
+  var menus = [
     {
       'name' : 'Home',
       'icon' : Icons.home,
