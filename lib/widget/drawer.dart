@@ -7,7 +7,7 @@ import 'package:sheria_pocket/widget/text.dart';
 
 class DrawerWidget extends StatefulWidget{
 
-  DrawerWidget({Key key, this.userName, this.url, this.isUser}) : super(key: key);
+  DrawerWidget({Key key,@required this.userName,@required this.url,@required this.isUser}) : super(key: key);
   final String userName;
   final String url;
   final bool isUser;
@@ -20,9 +20,23 @@ class DrawerWidget extends StatefulWidget{
 class _DrawerWidget extends State<DrawerWidget>{
 
 
+ @override
+  void initState() {
+    
+    super.initState();
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    setState(() {
+      for(int i = 0; i < widget.menuList.length; i++ ){
+      if (ModalRoute.of(context).settings.name == widget.menuList[i]['route']) {
+        widget.menuList[i]['active'] = true;
+      } else widget.menuList[i]['active'] = false;
+    }
+    });
     return Drawer(
       child: Container(
         constraints: BoxConstraints.expand(),
@@ -82,20 +96,16 @@ class _DrawerWidget extends State<DrawerWidget>{
                 itemBuilder: (BuildContext context, int index){
                   return GestureDetector(
                     onTap: (){
-                      for(int i = 0; i < widget.menuList.length; i++){
-                        setState(() {
-                          if (index == i) {
-                              widget.menuList[index]['active'] = true;
-                          } else {                               //the condition to change the highlighted item
-                              widget.menuList[i]['active'] = false;
-                          }
-                        });
-                      }
+                      // for(int i = 0; i < widget.menuList.length; i++){
+                        Navigator.pop(context);
+                        Navigator.pushNamed(context, widget.menuList[index]['route']);
+                        
+                      // }
                     },
                     child: Container(
-                      color: widget.menuList[index]['active'] ? Colors.red : Colors.white,
+                      color: widget.menuList[index]['active'] ? darkBlueColor : Colors.white,
                       child: ListTile(                                     //the item
-                        title: Text(widget.menuList[index]['name']),
+                        title: TextWidget(color: widget.menuList[index]['active'] ? Colors.white : Colors.black, text: widget.menuList[index]['name'], font: 'Poppins-Medium', fontSize: 14,),
                       ),
                     ),
                   );

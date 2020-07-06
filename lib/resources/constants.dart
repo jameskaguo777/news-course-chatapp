@@ -78,7 +78,7 @@ const USER =
       'name' : 'Home',
       'icon' : Icons.home,
       'route' : '/',
-      'active' : true,
+      'active' : false,
     },
     {
       'name' : 'Shopping',
@@ -109,5 +109,114 @@ const USER =
       'icon' : Icons.new_releases,
       'route' : '/news',
       'active' : false,
+    },
+  ];
+
+  var filtersItem = [
+    {
+      'name' : 'All',
+      'active' : false,
+    },
+    {
+      'name' : 'Criminal',
+      'active' : true,
+    },
+    {
+      'name' : 'cases',
+      'active' : false,
+    },
+    {
+      'name' : 'Debit',
+      'active' : false,
+    },
+    {
+      'name' : 'Law Sute',
+      'active' : false,
+    },
+  ];
+
+  var filterShopping = [
+    {
+      'name' : 'All',
+      'active' : true,
+    },
+    {
+      'name' : 'Books',
+      'active' : false,
+    },
+    {
+      'name' : 'Stationaries',
+      'active' : false,
+    },
+    {
+      'name' : 'Clothers',
+      'active' : false,
+    },
+    {
+      'name' : 'Tools',
+      'active' : false,
+    },
+  ];
+
+  var bookingList = [
+    {
+      'url' : 'https://www.zoomnews.in/uploads_2019/newses/pc_798716429_sm.jpg',
+      'name' : 'Lee StoneLee',
+      'specialization' : 'Crime Lawyer',
+      'booked' : false,
+    },
+    {
+      'url' : 'https://m.media-amazon.com/images/M/MV5BMTA0NDA0Mzk1MjZeQTJeQWpwZ15BbWU4MDUyOTA2MzIy._V1_SX1500_CR0,0,1500,999_AL_.jpg',
+      'name' : 'Marry GoldLock',
+      'specialization' : 'Law Sutes Lawyer',
+      'booked' : false,
+    },
+    {
+      'url' : 'https://cdn-metalogo.pearltrees.com/b8/b3/b8b3fc7bb7cef1ca31a78745a185fc1f-pearlsquare.jpg?v=2019-16-09',
+      'name' : 'Cynthia Zocca',
+      'specialization' : 'Robary Lawyer',
+      'booked' : false,
+    },
+    {
+      'url' : 'https://www.zoomnews.in/uploads_2019/newses/pc_798716429_sm.jpg',
+      'name' : 'Lee Stewart',
+      'specialization' : 'Crime Lawyer',
+      'booked' : false,
+    },
+    {
+      'url' : 'https://m.media-amazon.com/images/M/MV5BMTA0NDA0Mzk1MjZeQTJeQWpwZ15BbWU4MDUyOTA2MzIy._V1_SX1500_CR0,0,1500,999_AL_.jpg',
+      'name' : 'Marry GoldLock',
+      'specialization' : 'Law Sutes Lawyer',
+      'booked' : false,
+    },
+    {
+      'url' : 'https://cdn-metalogo.pearltrees.com/b8/b3/b8b3fc7bb7cef1ca31a78745a185fc1f-pearlsquare.jpg?v=2019-16-09',
+      'name' : 'Cynthia Zocca',
+      'specialization' : 'Robary Lawyer',
+      'booked' : false,
+    },
+    {
+      'url' : 'https://www.zoomnews.in/uploads_2019/newses/pc_798716429_sm.jpg',
+      'name' : 'Lee Stewart',
+      'specialization' : 'Crime Lawyer',
+      'booked' : false,
+    },
+    {
+      'url' : 'https://m.media-amazon.com/images/M/MV5BMTA0NDA0Mzk1MjZeQTJeQWpwZ15BbWU4MDUyOTA2MzIy._V1_SX1500_CR0,0,1500,999_AL_.jpg',
+      'name' : 'Marry GoldLock',
+      'specialization' : 'Law Sutes Lawyer',
+      'booked' : false,
+    },
+    {
+      'url' : 'https://cdn-metalogo.pearltrees.com/b8/b3/b8b3fc7bb7cef1ca31a78745a185fc1f-pearlsquare.jpg?v=2019-16-09',
+      'name' : 'Cynthia Zocca',
+      'specialization' : 'Robary Lawyer',
+      'booked' : false,
+    },
+    {
+      'url' : 'https://cdn-metalogo.pearltrees.com/b8/b3/b8b3fc7bb7cef1ca31a78745a185fc1f-pearlsquare.jpg?v=2019-16-09',
+      'name' : 'Cynthia Zocca',
+      'specialization' : 'Robary Lawyer',
+      'booked' : false,
     },
   ];

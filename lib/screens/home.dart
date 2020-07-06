@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         drawer: DrawerWidget(userName: USER['userName'], isUser: USER['isUser'], url: USER['dp'],),
         appBar: _appBar(),
         body: Container(
-            padding: EdgeInsets.fromLTRB(5,5,5,0),
+            padding: EdgeInsets.fromLTRB(10,5,10,5),
             color: Colors.white,
             width: double.maxFinite,
             child: SingleChildScrollView(
@@ -168,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 110,
             child: ListView.builder(
                 shrinkWrap: true,
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(0),
                 scrollDirection: Axis.horizontal,
                 itemCount: citems.length,
                 itemBuilder: (BuildContext context, int index){
