@@ -220,3 +220,69 @@ const USER =
       'booked' : false,
     },
   ];
+
+  const PRODUCTS = [
+    {
+      'name' : 'Dell 213',
+      'location' : 'Ilala, Dar es Salaam',
+      'id' : '1',
+      'imageUrl' : 'https://i.ebayimg.com/images/g/zi4AAOSwRVRelzyt/s-l500.jpg',
+      'price' : '500,000',
+    },
+    {
+      'name' : 'Dell 213',
+      'location' : 'Ilala, Dar es Salaam',
+      'id' : '2',
+      'imageUrl' : 'https://i.ebayimg.com/images/g/mQMAAOSwl4Ze6kzC/s-l500.jpg',
+      'price' : '300,000',
+    },
+    {
+      'name' : 'Dell 213',
+      'location' : 'Ilala, Dar es Salaam',
+      'id' : '3',
+      'imageUrl' : 'https://i.ebayimg.com/images/g/BykAAOSwOjxcwrzh/s-l500.jpg',
+      'price' : '600,000',
+    },
+    {
+      'name' : 'Dell 213',
+      'location' : 'Ilala, Dar es Salaam',
+      'id' : '4',
+      'imageUrl' : 'https://i.ebayimg.com/images/g/BYoAAOSw7F9cQu4v/s-l500.jpg',
+      'price' : '700,000',
+    },
+    {
+      'name' : 'Dell 213',
+      'location' : 'Ilala, Dar es Salaam',
+      'id' : '5',
+      'imageUrl' : 'https://i.ebayimg.com/images/g/Jd8AAOSwSK9diN5Q/s-l500.jpg',
+      'price' : '100,000',
+    },
+    {
+      'name' : 'Dell 213',
+      'location' : 'Ilala, Dar es Salaam',
+      'id' : '6',
+      'imageUrl' : 'https://i.ebayimg.com/images/g/lQwAAOSw~Nta7IQQ/s-l500.jpg',
+      'price' : '400,000',
+    },
+    {
+      'name' : 'Dell 213',
+      'location' : 'Ilala, Dar es Salaam',
+      'id' : '7',
+      'imageUrl' : 'https://i.ebayimg.com/images/g/WDYAAOSwXhtZjLpj/s-l500.jpg',
+      'price' : '900,000',
+    },
+    {
+      'name' : 'Dell 213',
+      'location' : 'Ilala, Dar es Salaam',
+      'id' : '8',
+      'imageUrl' : 'https://i.ebayimg.com/images/g/F9EAAOSwvrddLEys/s-l500.jpg',
+      'price' : '1,000,000',
+    },
+    {
+      'name' : 'Dell 213',
+      'location' : 'Ilala, Dar es Salaam',
+      'id' : '9',
+      'imageUrl' : 'https://i.ebayimg.com/images/g/2wsAAOSwERFeAB3o/s-l500.jpg',
+      'price' : '300,000',
+    },
+  ];

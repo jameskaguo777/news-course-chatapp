@@ -9,6 +9,7 @@ class Shopping extends StatefulWidget{
  Shopping({ Key key }) : super(key : key);
 
   final List<dynamic> filters = filterShopping;
+  final List<dynamic> products = PRODUCTS;
  _Shopping createState() => _Shopping();
 }
 
@@ -32,7 +33,7 @@ class _Shopping extends State<Shopping>{
             mainAxisSize: MainAxisSize.max,
             children: [
               _filterWidget(),
-              ShoppingCards(),
+              _products(),
             ]
           ),
         ),    
@@ -57,4 +58,31 @@ class _Shopping extends State<Shopping>{
     );
   }
 
+  Widget _products(){
+    final countValue = 2;
+    final aspectWidth = 1;
+    final aspectHeight = 1.5;
+    return Expanded(
+          child: GridView.count(
+        crossAxisCount: countValue,
+        childAspectRatio: (aspectWidth / aspectHeight),
+        shrinkWrap: true,
+        children: widget.products.map((e) => ShoppingCards(key: UniqueKey(), name: e['name'], id: e['id'], imageUrl: e['imageUrl'], location: e['location'], price: e['price'])).toList(),
+        ),
+      
+    );
+  }
+
 }
+
+
+// ListView.builder(
+//         shrinkWrap: true,
+//         padding: const EdgeInsets.all(0),
+//         scrollDirection: Axis.vertical,
+//         cacheExtent: 20.0,
+//         itemCount: widget.products.length,
+//         itemBuilder: (BuildContext context, int index){
+//           return ShoppingCards(key: UniqueKey(), name: widget.products[index]['name'], id: widget.products[index]['id'], imageUrl: widget.products[index]['imageUrl'], location: widget.products[index]['location'], price: widget.products[index]['price']);
+//         },
+//       ),
