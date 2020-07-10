@@ -18,6 +18,7 @@ class _Shopping extends State<Shopping>{
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         drawer: DrawerWidget(userName: USER['userName'], url: USER['dp'], isUser: USER['isUser'],),
         appBar: PreferredSize(preferredSize: Size(50, 50),
           child: AppBarWidget(title: 'Shopping')), 

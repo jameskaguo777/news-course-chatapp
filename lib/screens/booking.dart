@@ -21,6 +21,7 @@ class _Booking extends State<Booking>{
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         drawer: DrawerWidget(userName: USER['userName'], url: USER['dp'], isUser: USER['isUser'],),
         appBar: PreferredSize(preferredSize: Size(50, 50),
           child: AppBarWidget(title: 'Booking Lawyer')),  
@@ -83,8 +84,8 @@ class _Booking extends State<Booking>{
   }
 
   Widget _lawyerList(){
-    return Container(
-      height: MediaQuery.of(context).size.height*0.7,
+    return Expanded(
+      // height: MediaQuery.of(context).size.height*0.7,
       child: ListView.builder(
         shrinkWrap: true,
         padding: const EdgeInsets.all(0),

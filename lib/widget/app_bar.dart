@@ -17,28 +17,12 @@ class _AppBarWidgetState extends State<AppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        title: Row(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-
-              // SvgPicture.asset('assets/images/balance.svg'),
-              // SizedBox(width: 10),
-              TextWidget(
+        title: TextWidget(
                 text: widget.title,
                 font: 'Poppins-Bold',
                 fontSize: 25,
                 color: Colors.black,
               ),
-              // TextWidget(
-              //   text: title,
-              //   font: 'Poppins-Bold',
-              //   fontSize: 25,
-              //   color: yellowColor,
-              // ),
-          ],
-          ),
         backgroundColor: Colors.white,
         leading: Builder(
           builder: (BuildContext context){
