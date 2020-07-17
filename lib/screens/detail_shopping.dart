@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sheria_pocket/resources/colors.dart';
 import 'package:sheria_pocket/resources/constants.dart';
 import 'package:sheria_pocket/widget/carousel_card.dart';
 import 'package:sheria_pocket/widget/text.dart';
@@ -21,6 +23,7 @@ class _DetailShopping extends State<DetailShopping> {
       body: Column(
         children: [
           _carouselWidget(),
+          _bodyDetail(),
         ],
       ),
     ));
@@ -51,14 +54,133 @@ class _DetailShopping extends State<DetailShopping> {
   }
 
   Widget _carouselWidget() {
-    final List<String> imgList = [
-      'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-      'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-      'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-      'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-      'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-      'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
-    ];
     return CarouselCard(imgList: images);
+  }
+
+  Widget _bodyDetail() {
+    return Expanded(
+          child: Container(
+        alignment: Alignment.topLeft,
+        color: Colors.white,
+        padding: EdgeInsets.all(30),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+            child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextWidget(
+                text: PRODUCTDETAILS['name'],
+                font: 'Poppins-Bold',
+                fontSize: 16,
+                color: Colors.black,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Wrap(
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                direction: Axis.horizontal,
+                children: [
+                  Icon(
+                    Icons.near_me,
+                    size: 20,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  TextWidget(
+                    text: PRODUCTDETAILS['location'],
+                    font: 'Poppins-Medium',
+                    fontSize: 10,
+                    color: Colors.black54,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextWidget(
+                text: PRODUCTDETAILS['detail'],
+                font: 'Poppins-Medium',
+                fontSize: 12,
+                color: Colors.black87,
+              ),
+              SizedBox(height: 20),
+              Wrap(
+                direction: Axis.horizontal,
+                alignment: WrapAlignment.spaceAround,
+                children: [
+                  TextWidget(
+                    text: 'Price',
+                    color: Colors.black,
+                    font: 'Poppins-Light',
+                    fontSize: 12,
+                  ),
+                  TextWidget(
+                    text: PRODUCTDETAILS['price'],
+                    color: oceanBlueColor,
+                    font: 'Poppins-SemiBold',
+                    fontSize: 15,
+                  )
+                ],
+              ),
+              SizedBox(height: 30,),
+              Container(
+                  alignment: Alignment.center,
+                  child: Wrap(
+                  direction: Axis.vertical,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    FlatButton(
+                      onPressed: () {},
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide(color: darkBlueColor),
+                        ),
+                      color: yellowColor, 
+                      child: Container(
+                      alignment: Alignment.center,
+                      width: MediaQuery.of(context).size.width*0.7,
+                      child: Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          direction: Axis.horizontal,                      
+                          children: [
+                            TextWidget(text: 'CALL', font: 'Poppins-Bold', fontSize: 15, color: Colors.white,),
+                            SizedBox(width: 10,),
+                            Icon(Icons.phone, size: 20, color: Colors.white,),
+                          ], 
+                        ),
+                      ), 
+                    ),
+                    FlatButton(
+                      onPressed: () {},
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide(color: darkBlueColor),
+                        ),
+                      color: yellowColor, 
+                      child: Container(
+                      alignment: Alignment.center,
+                      width: MediaQuery.of(context).size.width*0.7,
+                      child: Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          direction: Axis.horizontal,                      
+                          children: [
+                            TextWidget(text: 'WhatsApp', font: 'Poppins-Bold', fontSize: 15, color: Colors.white,),
+                            SizedBox(width: 10,),
+                            Container(width: 20, height: 20, child: SvgPicture.asset('assets/images/whatsapp.svg')),
+                          ], 
+                        ),
+                      ), 
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
