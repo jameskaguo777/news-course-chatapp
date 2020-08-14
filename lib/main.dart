@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sheria_pocket/screens/booking.dart';
+import 'package:sheria_pocket/screens/detail_booking.dart';
 import 'package:sheria_pocket/screens/home.dart';
 import 'package:sheria_pocket/screens/learning.dart';
 import 'package:sheria_pocket/screens/media.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       title: 'Sheria Pocket',
       initialRoute: '/',
       routes: {
@@ -24,12 +26,13 @@ class MyApp extends StatelessWidget {
         '/media' : (context) => Media(),
         '/learning' : (context) => Learning(),
         '/news' : (context) => News(),
-
+        '/detail_booking' : (context) => DetailBooking(),
       },
       theme: ThemeData(
-        
+        fontFamily: 'Poppins-Regular',
         primarySwatch: Colors.blue,
-        
+        accentColor: Colors.blue,
+        // canvasColor: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // home: MyHomePage(title: 'Sheria Pocket'),

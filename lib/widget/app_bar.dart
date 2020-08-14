@@ -17,6 +17,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+        centerTitle: true,
         title: TextWidget(
                 text: widget.title,
                 font: 'Poppins-Bold',

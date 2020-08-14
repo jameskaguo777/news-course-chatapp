@@ -31,24 +31,43 @@ class _DetailShopping extends State<DetailShopping> {
 
   Widget _appBarWidget() {
     return AppBar(
+      centerTitle: true,
+      leadingWidth: 90,
       title: TextWidget(
         text: PRODUCTDETAILS['name'],
         font: 'Poppins-SemiBold',
         fontSize: 25,
+        
         color: Colors.black,
       ),
       backgroundColor: Colors.white,
-      leading: Builder(builder: (BuildContext context) {
-        return IconButton(
-          icon: Container(
-            height: 25.0,
-            child: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
+      leading: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+          child: Center(
+            child: Wrap(
+              direction: Axis.horizontal,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              alignment: WrapAlignment.start,
+              children: [
+                IconButton(
+                  color: Colors.black87,
+                  padding: EdgeInsets.all(0),
+                  constraints: BoxConstraints(maxWidth: 20),
+                  icon: Icon(Icons.arrow_back_ios),
+                  onPressed: () => Navigator.pop(context),
+                  tooltip: 'Back',
+                  
+                ),
+                TextWidget(
+                  text: 'Back',
+                  font: 'Poppins-SemiBold',
+                  fontSize: 14,
+                  color: Colors.black87,
+                ),
+              ],
+            ),
           ),
-          onPressed: () => Navigator.pop(context),
-          // onPressed: () => Scaffold.of(context).openDrawer(),
-          // tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-        );
-      }),
+        ),
       elevation: 0.0,
     );
   }

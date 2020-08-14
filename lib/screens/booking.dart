@@ -5,7 +5,9 @@ import 'package:sheria_pocket/widget/app_bar.dart';
 import 'package:sheria_pocket/widget/booking_list.dart';
 import 'package:sheria_pocket/widget/drawer.dart';
 import 'package:sheria_pocket/widget/filter_card.dart';
+import 'package:sheria_pocket/widget/search_input.dart';
 import 'package:sheria_pocket/widget/text.dart';
+
 
 class Booking extends StatefulWidget{
 Booking({Key key}) : super(key: key);
@@ -47,19 +49,25 @@ class _Booking extends State<Booking>{
   }
 
   Widget _filterWidget(){
-    return Container(
-    // width: double.infinity, 
-    height: 65,
-    padding: EdgeInsets.fromLTRB(0, 10, 0, 10), 
-    child: ListView.builder(
-        shrinkWrap: true,
-        padding: const EdgeInsets.all(0),
-        scrollDirection: Axis.horizontal,
-        itemCount: widget.filters.length,
-        itemBuilder: (BuildContext context, int index){
-          return FilterCard(filterName: widget.filters[index]['name'], active: widget.filters[index]['active']);
-        },
-      ),
+    return Column(
+      children: [
+        Container(
+          height: 49,
+          child: ListView.builder(
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(0),
+              scrollDirection: Axis.horizontal,
+              itemCount: widget.filters.length,
+              itemBuilder: (BuildContext context, int index){
+                return FilterCard(filterName: widget.filters[index]['name'], active: widget.filters[index]['active']);
+              },
+            ),
+        ),
+        Container(
+          height: 40,
+          child: SearchInput(key: UniqueKey())
+        ),
+      ],
     );
   }
 
