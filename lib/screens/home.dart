@@ -237,7 +237,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 scrollDirection: Axis.vertical,
                 itemCount: nitems.length,
                 itemBuilder: (BuildContext context, int index){
-                  return NewsTiles(url: nitems[index]['url'], title: nitems[index]['title'], subtitle: nitems[index]['subtitle'], date: nitems[index]['date'],);
+                  return NewsTiles(url: nitems[index]['url'], title: nitems[index]['title'], subtitle: nitems[index]['subtitle'], date: nitems[index]['date'], routeName: '/detail_news',);
                 },
               ),
           ),

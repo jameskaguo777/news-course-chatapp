@@ -17,10 +17,29 @@ class _Media extends State<Media>{
         backgroundColor: Colors.white,
         drawer: DrawerWidget(userName: USER['userName'], url: USER['dp'], isUser: USER['isUser'],),
         appBar: PreferredSize(preferredSize: Size(50, 50),
-          child: AppBarWidget(title: 'Media')),    
+          child: AppBarWidget(title: 'Downloaded Media')),
+        body: Container(
+          width: double.maxFinite,
+          height: double.maxFinite,
+          child: Column(
+            children: [
+
+            ],
+          ),
+        ),    
       )
     );
   }
 
+  Widget _body(){
+    return Expanded(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: 4,
+        itemBuilder: (BuildContext context, int index){
+
+      }) 
+    );
+  }
 
 }

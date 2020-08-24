@@ -8,7 +8,6 @@ import 'package:sheria_pocket/widget/text.dart';
 class DrawerWidget extends StatefulWidget {
   DrawerWidget(
       {Key key,
-      
       @required this.userName,
       @required this.url,
       @required this.isUser})
@@ -16,7 +15,7 @@ class DrawerWidget extends StatefulWidget {
   final String userName;
   final String url;
   final bool isUser;
-  
+
   // final List<bool> isHighlighted = [true, false, false];
   final List<dynamic> menuList = menus;
 
@@ -43,31 +42,52 @@ class _DrawerWidget extends State<DrawerWidget> {
     });
     return Drawer(
         child: Container(
+      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
       constraints: BoxConstraints.expand(),
       child: Column(children: [
-        Container(
-          padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-          alignment: Alignment.topLeft,
-          height: size.height * 0.25,
-          width: double.infinity,
-          color: Colors.white,
-          child: Column(children: [
-            widget.isUser
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+        Column(children: [
+          widget.isUser
+              ? Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      TextWidget(
-                        text: widget.userName,
-                        font: 'Poppins-SemiBold',
-                        fontSize: 14,
-                        color: Colors.black,
+                      Wrap(
+                        direction: Axis.vertical,
+                        spacing: 2,
+                        children: [
+                          TextWidget(
+                            text: widget.userName,
+                            font: 'Poppins-SemiBold',
+                            fontSize: 14,
+                            color: Colors.black,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          Wrap(
+                            direction: Axis.horizontal,
+                            spacing: 5,
+                            children: [
+                              Icon(
+                                Icons.supervised_user_circle,
+                                color: blueColor,
+                                size: 20,
+                              ),
+                              TextWidget(
+                                text: 'Lawyer',
+                                font: 'Poppins-SemiBold',
+                                fontSize: 14,
+                                color: Colors.black87,
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child: CachedNetworkImage(
-                          width: 50,
-                          height: 50,
+                          width: 80,
+                          height: 80,
                           fit: BoxFit.fill,
                           imageUrl: widget.url,
                           progressIndicatorBuilder:
@@ -79,32 +99,35 @@ class _DrawerWidget extends State<DrawerWidget> {
                         ),
                       )
                     ],
-                  )
-                : FlatButton(
-                    onPressed: null,
-                    child: TextWidget(
-                        text: 'Login',
-                        font: 'Poppins-SemiBold',
-                        fontSize: 14,
-                        color: Colors.black)),
-            Container(
-              margin: EdgeInsets.fromLTRB(10, 20, 10, 0),
-              alignment: Alignment.center,
-              width: double.infinity,
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                    side: BorderSide(color: darkBlueColor)),
-                child: TextWidget(
-                    text: 'LIVE CHAT',
-                    color: Colors.white,
-                    font: 'Poppins-Bold',
-                    fontSize: 14),
-                color: darkBlueColor,
-                onPressed: () {/** */},
-              ),
+                  ),
+                )
+              : FlatButton(
+                  onPressed: null,
+                  child: TextWidget(
+                      text: 'Login',
+                      font: 'Poppins-SemiBold',
+                      fontSize: 14,
+                      color: Colors.black)),
+          Container(
+            margin: EdgeInsets.fromLTRB(10, 20, 10, 0),
+            alignment: Alignment.center,
+            width: double.maxFinite,
+            child: FlatButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(color: darkBlueColor)),
+              child: TextWidget(
+                  text: 'LIVE CHAT',
+                  color: Colors.white,
+                  font: 'Poppins-Bold',
+                  fontSize: 14),
+              color: darkBlueColor,
+              onPressed: () {/** */},
             ),
-          ]),
+          ),
+        ]),
+        SizedBox(
+          height: 10,
         ),
         Expanded(
           child: ListView.builder(
@@ -134,9 +157,12 @@ class _DrawerWidget extends State<DrawerWidget> {
                         font: 'Poppins-Medium',
                         fontSize: 14,
                       ),
-                      leading: Icon(widget.menuList[index]['icon'], color: widget.menuList[index]['active']
+                      leading: Icon(
+                        widget.menuList[index]['icon'],
+                        color: widget.menuList[index]['active']
                             ? Colors.white
-                            : Colors.black,),
+                            : Colors.black,
+                      ),
                     ),
                   ),
                 );

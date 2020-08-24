@@ -5,7 +5,7 @@ import 'package:sheria_pocket/widget/app_bar.dart';
 import 'package:sheria_pocket/widget/booking_list.dart';
 import 'package:sheria_pocket/widget/drawer.dart';
 import 'package:sheria_pocket/widget/filter_card.dart';
-import 'package:sheria_pocket/widget/search_input.dart';
+import 'package:sheria_pocket/widget/search_selection.dart';
 import 'package:sheria_pocket/widget/text.dart';
 
 
@@ -65,7 +65,7 @@ class _Booking extends State<Booking>{
         ),
         Container(
           height: 40,
-          child: SearchInput(key: UniqueKey())
+          child: SearchSelection(key: UniqueKey())
         ),
       ],
     );

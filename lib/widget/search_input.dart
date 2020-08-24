@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sheria_pocket/widget/text.dart';
 
 class SearchInput extends StatefulWidget {
   SearchInput({Key key}) : super(key: key);
@@ -8,56 +7,25 @@ class SearchInput extends StatefulWidget {
 }
 
 class _SearchInput extends State<SearchInput> {
-  final _formKey = GlobalKey<FormState>();
-  var _currentSelectedValue;
-  final _currencies = [
-      "Dar es Salaam",
-      "Dodoma",
-      "Tabora",
-      "Mwanza",
-      "Morogoro",
-      "Arusha",
-      "Moshi",
-      "Tanga"
-    ];
+  
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
-      child: DropdownButtonHideUnderline(
+      child: TextFormField(
+        validator: (value){
 
-        child: DropdownButtonFormField<dynamic>(
+        },
+        onChanged: (dynamic newValue){},
+        autofillHints: ['tada', 'james', 'school'],
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.fromLTRB(1, 2, 1, 0),
+          hintText: 'Search',
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+
+          ),
           
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.fromLTRB(1, 2, 1, 0),
-              hintText: 'Filter by region',
-              hintStyle: TextStyle(fontFamily: 'Poppins-SemiBold', textBaseline: TextBaseline.ideographic, decoration: TextDecoration.none),
-              prefixIcon: Icon(Icons.location_on_sharp),
-              border: OutlineInputBorder(
-
-                borderRadius: BorderRadius.all(Radius.circular(8)))),
-          validator: (value) =>
-              value == null ? 'Please fill in your Tax Reference' : null,
-          value: _currentSelectedValue,
-          isDense: true,
-          onChanged: (dynamic newValue) {
-            setState(() {
-              _currentSelectedValue = newValue;
-              // print(_findRefValue().toString() + ' tried');
-              // state.didChange(newValue);
-            });
-          },
-          items: _currencies.map((dynamic value) {
-            return DropdownMenuItem<dynamic>(
-              value: value,
-              child: TextWidget(
-                color: Colors.black,
-                text: value,
-                font: 'Poppins-Medium',
-                fontSize: 12,
-              ),
-            );
-          }).toList(),
+          prefixIcon: Icon(Icons.search)
         ),
       ),
     );

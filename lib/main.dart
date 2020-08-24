@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:sheria_pocket/screens/booking.dart';
 import 'package:sheria_pocket/screens/detail_booking.dart';
+import 'package:sheria_pocket/screens/detail_learning.dart';
+import 'package:sheria_pocket/screens/detail_news.dart';
 import 'package:sheria_pocket/screens/home.dart';
 import 'package:sheria_pocket/screens/learning.dart';
+import 'package:sheria_pocket/screens/live_chat.dart';
 import 'package:sheria_pocket/screens/media.dart';
+import 'package:sheria_pocket/screens/messages.dart';
 import 'package:sheria_pocket/screens/news.dart';
 import 'package:sheria_pocket/screens/shopping.dart';
 
@@ -27,6 +31,10 @@ class MyApp extends StatelessWidget {
         '/learning' : (context) => Learning(),
         '/news' : (context) => News(),
         '/detail_booking' : (context) => DetailBooking(),
+        '/detail_learning' : (context) => DetailLearning(),
+        '/detail_news' : (context) => DetailNews(),
+        '/live_chat' : (context) => LiveChat(),
+        '/messages' : (context) => MessagesPage(),
       },
       theme: ThemeData(
         fontFamily: 'Poppins-Regular',

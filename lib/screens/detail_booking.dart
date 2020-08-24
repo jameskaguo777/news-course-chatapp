@@ -374,11 +374,12 @@ class _DetailBooking extends State<DetailBooking> {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Container(
-        // padding: EdgeInsets.fromLTRB(0, top, right, bottom),
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 20),
         width: double.maxFinite,
         child: Column(
           children: [
             TextWidget(text: 'Biography', font: 'Poppins-Bold', fontSize: 18, color: Colors.black87,),
+            TextWidget(text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,'),
           ],
         ),
       ),

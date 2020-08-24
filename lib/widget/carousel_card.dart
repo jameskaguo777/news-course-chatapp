@@ -28,14 +28,14 @@ class _CarouselCard extends State<CarouselCard> {
     final List<Widget> imageSliders = widget.imgList
       .map<Widget>((item) => Container(
             child: Container(
-              margin: EdgeInsets.all(5.0),
+              margin: EdgeInsets.all(0.0),
               child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   child: Stack(
                     children: <Widget>[
                       Center(
                         child: CachedNetworkImage(
-                            width: MediaQuery.of(context).size.width*.8,
+                            width: MediaQuery.of(context).size.width*.9,
                             height: MediaQuery.of(context).size.height*.3,
                             fit: BoxFit.fill,
                             imageUrl: item,
@@ -64,15 +64,9 @@ class _CarouselCard extends State<CarouselCard> {
                           ),
                           padding: EdgeInsets.symmetric(
                               vertical: 10.0, horizontal: 20.0),
-                          child: Text(
-                            'No. $item image',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          child: FlatButton(onPressed: null, child: Icon(Icons.play_circle_fill, color: Colors.yellow,)),
                         ),
+                        
                       ),
                     ],
                   )),
@@ -84,7 +78,8 @@ class _CarouselCard extends State<CarouselCard> {
     return CarouselSlider(
       options: CarouselOptions(
         autoPlay: true,
-        aspectRatio: 2.0,
+        autoPlayInterval: Duration(seconds: 3),
+        aspectRatio: 16/9,
         enlargeCenterPage: true,
       ),
       items: imageSliders,

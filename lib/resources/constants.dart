@@ -103,12 +103,12 @@ var menus = [
     'route': '/booking',
     'active': false,
   },
-  {
-    'name': 'Media',
-    'icon': Icons.play_circle_filled,
-    'route': '/media',
-    'active': false,
-  },
+  // {
+  //   'name': 'Media',
+  //   'icon': Icons.play_circle_filled,
+  //   'route': '/media',
+  //   'active': false,
+  // },
   {
     'name': 'Learning',
     'icon': Icons.account_box,
@@ -121,6 +121,12 @@ var menus = [
     'route': '/news',
     'active': false,
   },
+  {
+    'name': 'Live Chat',
+    'icon': Icons.chat_bubble,
+    'route': '/live_chat',
+    'active': false
+  }
 ];
 
 var filtersItem = [
@@ -305,23 +311,26 @@ const PRODUCTS = [
   },
 ];
 
-const PRODUCTDETAILS = 
-  {
-    'name': 'Rare Law Book',
-    'location': 'Sinza, Dar es Salaam',
-    'detail':
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their',
-    'id': 8,
-    'imageUrl': 'https://i.ebayimg.com/images/g/F9EAAOSwvrddLEys/s-l500.jpg',
-    'price': '1,000,000',
-  }
-;
+const PRODUCTDETAILS = {
+  'name': 'Rare Law Book',
+  'location': 'Sinza, Dar es Salaam',
+  'detail':
+      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their',
+  'id': 8,
+  'imageUrl': 'https://i.ebayimg.com/images/g/F9EAAOSwvrddLEys/s-l500.jpg',
+  'price': '1,000,000',
+};
 
-final List<String> images = 
-   [
-    'https://i.ebayimg.com/images/g/F9EAAOSwvrddLEys/s-l500.jpg',
-    'https://i.ebayimg.com/images/g/UPcAAOSwJ~dd67Wa/s-l500.png',
-    'https://i.ebayimg.com/images/g/YSYAAOSw8bBef17w/s-l500.jpg',
-    'https://i.ebayimg.com/images/g/~g0AAOSwrQtdoJVp/s-l500.png',
-    'https://i.ebayimg.com/images/g/VtsAAOSwRGJeX7No/s-l500.jpg',
-  ];
+final List<String> images = [
+  'https://i.ebayimg.com/images/g/F9EAAOSwvrddLEys/s-l500.jpg',
+  'https://i.ebayimg.com/images/g/UPcAAOSwJ~dd67Wa/s-l500.png',
+  'https://i.ebayimg.com/images/g/YSYAAOSw8bBef17w/s-l500.jpg',
+  'https://i.ebayimg.com/images/g/~g0AAOSwrQtdoJVp/s-l500.png',
+  'https://i.ebayimg.com/images/g/VtsAAOSwRGJeX7No/s-l500.jpg',
+];
+
+final List<String> learningImages = [
+  'https://static.vecteezy.com/system/resources/previews/000/192/828/non_2x/vector-abstract-landscape-illustration.jpg',
+  'https://static.vecteezy.com/system/resources/previews/000/208/995/non_2x/vector-abstract-red-landscape-illustration.jpg',
+  'https://static.vecteezy.com/system/resources/previews/000/210/793/non_2x/vector-abstract-landscape-illustration.jpg',
+];
