@@ -37,9 +37,9 @@ class _ChartCard extends State<ChartCard> {
                         'https://miro.medium.com/max/3150/1*J_BOSSzUz4qBvAjFb-YgZA@2x.jpeg'),
               ),
               SizedBox(width: 10),
-              Container(
-                width: MediaQuery.of(context).size.width * .7,
-                child: Wrap(
+              Flexible(
+                fit: FlexFit.tight,
+                              child: Wrap(
                   direction: Axis.vertical,
                   spacing: 2,
                   children: [
@@ -61,21 +61,21 @@ class _ChartCard extends State<ChartCard> {
                 ),
               ),
               Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                color: blueColor,
-                child: Container(
-                  width: 25,
-                  height: 25,
-                  child: Center(
-                      child: TextWidget(
-                    text: '2',
-                    color: Colors.white,
-                    font: 'Poppins-Bold',
-                  )),
-                ),
-              )
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  color: blueColor,
+                  child: Container(
+                    width: 25,
+                    height: 25,
+                    child: Center(
+                        child: TextWidget(
+                      text: '2',
+                      color: Colors.white,
+                      font: 'Poppins-Bold',
+                    )),
+                  ),
+                )
             ],
           ),
         ),
