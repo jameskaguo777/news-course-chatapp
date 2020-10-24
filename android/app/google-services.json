@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "411814178593",
+    "firebase_url": "https://flutterapps-5dbc1.firebaseio.com",
+    "project_id": "flutterapps-5dbc1",
+    "storage_bucket": "flutterapps-5dbc1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411814178593:android:10b0d4c9209be457c35860",
+        "android_client_info": {
+          "package_name": "com.sheriapocket.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411814178593-pf6t29ub1bessnm50qb22bscv4al1er1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sheriapocket.app",
+            "certificate_hash": "133d0895a9744affe0b68dfd37f9efd9879a491c"
+          }
+        },
+        {
+          "client_id": "411814178593-cur52gtl5vp8u2iev4tk6vll6q469qu7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaZ-NN0rZIMSlcqxQfTcjoTxe7mnidOH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "411814178593-cur52gtl5vp8u2iev4tk6vll6q469qu7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
