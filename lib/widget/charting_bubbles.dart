@@ -42,7 +42,7 @@ class _CharttingBubbles extends State<CharttingBubbles> {
               child: widget.image != null
                   ? new Image.network(
                       'https://miro.medium.com/max/3150/1*J_BOSSzUz4qBvAjFb-YgZA@2x.jpeg',
-                      width: 250.0,
+                      width: 150.0,
                     )
                   : new Text('Let her go'),
             ),
@@ -90,7 +90,7 @@ class _CharttingBubbles extends State<CharttingBubbles> {
               child: widget.image != null
                   ? new Image.network(
                       'https://miro.medium.com/max/3150/1*J_BOSSzUz4qBvAjFb-YgZA@2x.jpeg',
-                      width: 250.0,
+                      width: 150.0,
                     )
                   : new Text('We love to test you'),
             ),
