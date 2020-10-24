@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sheria_pocket/resources/colors.dart';
+import 'package:sheria_pocket/widget/charting_bubbles.dart';
 import 'package:sheria_pocket/widget/text.dart';
 
 class MessagesPage extends StatefulWidget {
@@ -49,16 +50,15 @@ class _MessagesPage extends State<MessagesPage> {
             onPressed: () => Navigator.pop(context)),
       ),
       body: Container(
-        width: double.maxFinite,
-        height: double.maxFinite,
-        color: Colors.white,
+        alignment: Alignment.bottomCenter,
+        height: MediaQuery.of(context).size.height,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.baseline,
-          textBaseline: TextBaseline.alphabetic,
           children: [
-            // Text('data'),
-            _textInputSection(),
+            Flexible(fit: FlexFit.tight, flex: 7, child: _chatListSection()),
+            SafeArea(
+              child: _textInputSection(),
+            ),
           ],
         ),
       ),
@@ -78,8 +78,21 @@ class _MessagesPage extends State<MessagesPage> {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 borderSide: BorderSide(color: blueColor, width: 5))),
-        keyboardType: TextInputType.text,
+        keyboardType: TextInputType.multiline,
+        maxLines: null,
       ),
+    );
+  }
+
+  Widget _chatListSection() {
+    return ListView.builder(
+      reverse: true,
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      itemCount: 10,
+      itemBuilder: (BuildContext context, int index) {
+        return CharttingBubbles(index: index,);
+      },
     );
   }
 }

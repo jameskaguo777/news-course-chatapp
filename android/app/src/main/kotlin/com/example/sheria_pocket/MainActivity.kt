@@ -1,4 +1,4 @@
-package com.example.sheria_pocket
+package com.sheriapocket.app
 
 import io.flutter.embedding.android.FlutterActivity
 
