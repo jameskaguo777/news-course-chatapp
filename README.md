@@ -1,10 +1,8 @@
-# Sheria Pocket
-
-A simple App that bring together Lawyers.
+# News, Course, Chat App
 
 ## Getting Started
 
-![Screen1](design/screen1.png)
+![Screen1](design/screen2.png)
 
 ![Screen2](design/screen2.png)
 
